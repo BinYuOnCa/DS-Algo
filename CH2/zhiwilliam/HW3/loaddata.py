@@ -12,7 +12,7 @@ import time
 import logging
 
 
-logging.basicConfig(filename='etl.log', level=logging.INFO)
+logging.basicConfig(filename='etl.log', level=logging.DEBUG)
 est = pytz.timezone('US/Eastern')
 
 
@@ -27,6 +27,7 @@ def getCurrentTick(symbols, resolution, latest_tick, api: str = 'api'):
             return finnhub.restful_candles(symbols, resolution, latest_tick, now_seconds)
     except Exception as error:
         logging.error(error)
+        return []
 
 
 def load_and_etl(symbol, resolution, api):
@@ -36,11 +37,11 @@ def load_and_etl(symbol, resolution, api):
     # open_index = 0
 
     latest_candle = OldDataQuery().latest_candle(symbol, resolution)
-    print(latest_candle)
     if(latest_candle is not None and len(latest_candle) > 0):
         # Get latest tick time, compare it with retrieved tick and detect split/merge
         latest_tick = latest_candle[0][db_tick_index]
-        candles_data = getCurrentTick(symbol, resolution, latest_tick)
+        logging.debug("loading " + symbol)
+        candles_data = getCurrentTick(symbol, resolution, latest_tick, api)
         # same_tick_candle_data = list(filter(lambda x: (x[tick_index] == latest_tick), candles_data))
         # if(len(same_tick_candle_data) > 0):
         #     new_open = Decimal(same_tick_candle_data[0][open_index])
@@ -50,7 +51,10 @@ def load_and_etl(symbol, resolution, api):
         #         : update
         save_data = list(filter(lambda x: (x[tick_index] > latest_tick), candles_data))
         if(len(save_data) > 0):
+            logging.debug("saving data for " + symbol)
             SaveData().candles(symbol, save_data)
+        else:
+            logging.debug("no new data")
     else:
         candles_data = getCurrentTick(symbol, resolution, '1605629727')
         SaveData().candles(symbol, candles_data)

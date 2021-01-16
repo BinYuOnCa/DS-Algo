@@ -8,21 +8,25 @@ class FinnhubQuery:
     def __init__(self):
         pass
 
+    def _handle_data(self, data: dict):
+        if(data["s"] == "ok"):
+            return list(zip(data['o'], data['c'], data['h'], data['l'], data['v'], data['t']))
+        elif(data["s"] == "no_data"):
+            return []
+        else:
+            raise Exception("Failed to load candles" + data["s"])
+
     def restful_candles(self, symbol: str, resolution: str, start: str, end: str):
         finnhub_restful = effects.FinnhubRESTful()
         with finnhub_restful(symbol=symbol, resolution=resolution, start=start, end=end) as finnhub_res:
-            return finnhub_res.result
+            data = finnhub_res.result
+            return self._handle_data(data)
 
     def api_candles(self, symbol: str, resolution: str, start: str, end: str):
         with effects.FinnhubClient() as finnhub:
             # 1, 5, 15, 30, 60, D, W, M
             data = finnhub.client.stock_candles(symbol, resolution, start, end)
-            if(data["s"] == "ok"):
-                return list(zip(data['o'], data['c'], data['h'], data['l'], data['v'], data['t']))
-            elif(data["s"] == "no_data"):
-                return []
-            else:
-                raise Exception("Failed to load candles" + data["s"])
+            return self._handle_data(data)
 
 
 class OldDataQuery:
