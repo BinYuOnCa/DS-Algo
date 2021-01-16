@@ -44,15 +44,16 @@ class OldDataQuery:
         with effects.PostgresqlStore() as db:
             cur = db.conn.cursor()
             sql = self.cadnles_foramt.format(table=self.table_dict[resolution], symbol=symbol)
+            data = []
             try:
                 cur.execute(sql)
                 data = cur.fetchall()
-                return data
             except Exception as error:
                 logging.error(error)
             cur.close()
+            return data
 
 
 if __name__ == "__main__":
-    data = OldDataQuery().latest_candle('GOOG', 'D')
+    data = OldDataQuery().latest_candle('CIM', 'D')
     print(data)
