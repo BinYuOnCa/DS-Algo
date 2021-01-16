@@ -11,7 +11,10 @@ from configparser import ConfigParser
 ###
 # First, check if the table is existing, otherwise log an warning
 # Querey the symbol from table, get the latest time
-#
+# index the symbol and time
+# from the last end date +1 day, fetch stock candles and insert into table
+# If it is daily data, only one row, simply insert into
+# if it is one minute data, use copy_from to insert into ???
 #
 def UpdateData():
     conn = None
