@@ -53,7 +53,7 @@ def execute_sql(sqlCommand):
     finally :
         if conn is not None :
             conn.close ()
-            print ( 'Database connection closed.' )
+            print ( 'Database connection closed.')
 
 
 
