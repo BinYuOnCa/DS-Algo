@@ -3,6 +3,7 @@ import finnhub
 import configparser
 import psycopg2
 from twilio.rest import Client
+import requests
 
 
 class FinnhubClient:
@@ -16,6 +17,27 @@ class FinnhubClient:
 
     def __exit__(self, type, value, traceback):
         self.client.close()
+
+
+class FinnhubRESTful:
+    def __init__(self, api_key=os.environ.get("FINNHUB_API_KEY")):
+        self.query = """https://finnhub.io/api/v1/stock/candle?symbol={symbol}\
+            &resolution={resolution}&from={start}&to={end}&token=bv83fhf48v6vtpa0fjkg"""
+        self.api_key = api_key
+
+    def __call__(self, **kwargs):
+        self.request = requests.get(self.query.format(symbol=kwargs['symbol'],
+                                                      resolution=kwargs['resolution'],
+                                                      start=kwargs['start'],
+                                                      end=kwargs['end']))
+        return self
+
+    def __enter__(self):
+        self.result = self.request.json()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.request.close()
 
 
 class PostgresqlStore:
@@ -49,3 +71,9 @@ class SMS:
 
     def __exit__(self, type, value, traceback):
         pass
+
+
+if __name__ == "__main__":
+    finnhub_restful = FinnhubRESTful()
+    with finnhub_restful(symbol="GOOG", resolution="D", start=1605543327, end=1605629727) as finnhub_res:
+        print(finnhub_res.result)
