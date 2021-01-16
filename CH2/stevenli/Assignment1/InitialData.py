@@ -1,0 +1,112 @@
+import pandas as pd
+from io import StringIO
+import psycopg2
+import finnhub
+import db_utility as util
+import logging
+import time
+import datetime
+from configparser import ConfigParser
+
+
+def create_table(sqlcommand):
+    
+    try:
+        conn = util.cursor_setup()
+        cur = conn.cursor()
+
+        conn.commit()
+        cur.execute(sqlcommand)
+
+        conn.commit()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None :
+            cur.close()
+            conn.close()
+
+
+def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
+    finnhub_client = finnhub.Client(api_key="bv4f2qn48v6qpatdiu3g")
+    symbols = pd.read_csv(csv_file, nrows=11).to_numpy()
+    try:
+        conn = util.cursor_setup()
+        cur = conn.cursor()
+        print(datetime.datetime.now())
+        for symbol in symbols:
+            print(symbol)
+            res = finnhub_client.stock_candles(symbol, resolution, start_time, end_time)
+
+            time.sleep(1)
+            if res['s'] == 'no_data':
+                print("The symbol " + symbol + " has no data")
+            else:
+                res.pop('s', None)
+
+                df = pd.DataFrame(res)
+
+                df.insert(0, 'symbol', symbol[0], allow_duplicates=True)
+
+                df2 = pd.DataFrame()
+
+                buffer = StringIO()
+                df.to_csv(buffer, index=False, header=False)
+                buffer.seek(0)
+
+                cur.copy_from(buffer, table_name, sep=",")
+                conn.commit()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            cur.close()
+            conn.close()
+
+
+if __name__ == '__main__':
+    # Setup finnhub client
+    dailytable = 'stock_daily'
+    minutetable = 'stock_minute'
+    finnhub_client = finnhub.Client ( api_key="bv4f2qn48v6qpatdiu3g" )
+
+    sqlcommand = "CREATE TABLE IF NOT EXISTS " + dailytable + " (" \
+                                                             "symbol   VARCHAR(50) NOT NULL, " \
+                                                             "close    FLOAT NOT NULL, " \
+                                                             "high     FLOAT NOT NULL, " \
+                                                             "low      FLOAT NOT NULL, " \
+                                                             "open     FLOAT NOT NULL, " \
+                                                             "time     INT NOT NULL, " \
+                                                             "volume   FLOAT NOT NULL) "
+
+    create_table(sqlcommand)
+    sqlcommand = "CREATE TABLE IF NOT EXISTS " + minutetable + " (" \
+                                                              "symbol   VARCHAR(50) NOT NULL, " \
+                                                              "close    FLOAT NOT NULL, " \
+                                                              "high     FLOAT NOT NULL, " \
+                                                              "low      FLOAT NOT NULL, " \
+                                                              "open     FLOAT NOT NULL, " \
+                                                              "time     INT NOT NULL, " \
+                                                              "volume   FLOAT NOT NULL) "
+
+    create_table(sqlcommand)
+    
+    initial_stockdata('sec_list_10.csv', 'D', 979527600, 1610679600, dailytable)
+    initial_stockdata('sec_list_10.csv', '1', 979527600, 1610679600, minutetable)
+
+       
+
+
+
+
+
+
+
+
+
+
+
+    print(datetime.datetime.now())
+    print("End of code.")
+
