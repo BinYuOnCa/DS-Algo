@@ -25,10 +25,28 @@ def UpdateData():
         if cur.fetchone()[0]:
             print("table exist")
             # Create index in daily table
-            sqlcommand = "CREATE INDEX "
+            sqlcommand= "DROP INDEX IF EXISTS idx_time"
+            cur.execute ( sqlcommand )
+            conn.commit ()
+            sqlcommand = "CREATE INDEX idx_time ON stock_daily(symbol);"
+            cur.execute(sqlcommand)
+            conn.commit ()
+            # Is this SELECT query effective enough??
+            sqlcommand = "SELECT symbol, time, close FROM stock_daily WHERE symbol='MGNX' ORDER BY time desc "
+            cur.execute ( sqlcommand )
+            print(cur.fetchone())
+            print(cur.fetchone()[0])
+            print(cur.fetchone()[1])
+            #today = datetime.now()
+            #print("today is "+today.strftime())
+            #print("today unxi time is: "+util.convert_time(today))
+
+
             # commit the changes
             conn.commit()
-            cur.close()
+        else:
+            print("The table is not existing.")
+        cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
