@@ -89,5 +89,9 @@ if __name__ == "__main__":
     msg = 'Finished loading daily level stock candles.'
     if(resolution == '1'):
         msg = 'Finished loading 1 minute level stock candles.'
-    EmailNotification().send('zhiwilliam@gmail.com', msg)
-    SMSNotification().send('+16475220400', msg)
+    try:
+        EmailNotification().send('zhiwilliam@gmail.com', msg)
+        SMSNotification().send('+16475220400', msg)
+    except Exception as error:
+        logging.error('Failed to send message out')
+        logging.error(error)
