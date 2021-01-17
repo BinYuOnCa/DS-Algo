@@ -1,9 +1,10 @@
 import os
 import finnhub
-import configparser
 import psycopg2
 from twilio.rest import Client
 import requests
+import smtplib
+import config
 
 
 class FinnhubClient:
@@ -42,9 +43,7 @@ class FinnhubRESTful:
 
 class PostgresqlStore:
     def __init__(self, db_password=os.environ.get("DB_PASSWORD")):
-        config = configparser.ConfigParser()
-        config.read_file(open('application.conf'))
-        db_config = config['DATABASE']
+        db_config = config.get('DATABASE')
         self.db_host = db_config['host']
         self.db_port = int(db_config['port'])
         self.db_user = db_config['user']
@@ -71,6 +70,22 @@ class SMS:
 
     def __exit__(self, type, value, traceback):
         pass
+
+
+class Gmail:
+    def __init__(self, account, api_pass=os.environ.get("MAIL_API_PASSWORD")):
+        self.api_pass = api_pass
+        self.account = f"{account}@gmail.com"
+
+    def __enter__(self):
+        self.server = smtplib.SMTP('smtp.gmail.com', 587)
+        self.server.ehlo()
+        self.server.starttls()
+        self.server.login(self.account, self.api_pass)
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.server.close()
 
 
 if __name__ == "__main__":

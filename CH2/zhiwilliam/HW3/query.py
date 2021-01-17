@@ -1,6 +1,6 @@
 import effects
 import logging
-import configparser
+import config
 from datetime import datetime
 
 
@@ -31,9 +31,7 @@ class FinnhubQuery:
 
 class OldDataQuery:
     def __init__(self):
-        config = configparser.ConfigParser()
-        config.read_file(open('application.conf'))
-        db_config = config['DATABASE']
+        db_config = config.get('DATABASE')
 
         self.table_dict = {"1": db_config['table_1'], "D": db_config['table_d']}
         self.base_time = datetime(1970, 1, 1)

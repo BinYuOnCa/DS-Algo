@@ -1,7 +1,8 @@
 from query import FinnhubQuery, OldDataQuery
 from persistent import SaveData
 from datetime import datetime
-from effects import SMS
+from messages import EmailNotification, SMSNotification
+from finnhub import FinnhubAPIException, FinnhubRequestException
 import sys
 import getopt
 # from decimal import Decimal
@@ -10,9 +11,11 @@ import pytz
 import sched
 import time
 import logging
+import config
 
 
-logging.basicConfig(filename='etl.log', level=logging.DEBUG)
+conf = config.get("APP")
+logging.basicConfig(filename=conf['log_file'], level=logging.DEBUG)
 est = pytz.timezone('US/Eastern')
 
 
@@ -20,14 +23,19 @@ def getCurrentTick(symbols, resolution, latest_tick, api: str = 'api'):
     finnhub = FinnhubQuery()
     now = datetime.now().astimezone(est).replace(tzinfo=None)
     now_seconds = int((now - datetime(1970, 1, 1)).total_seconds())
+    result = []
     try:
         if(api == 'api'):
-            return finnhub.api_candles(symbols, resolution, latest_tick, now_seconds)
+            result = finnhub.api_candles(symbols, resolution, latest_tick, now_seconds)
         else:
-            return finnhub.restful_candles(symbols, resolution, latest_tick, now_seconds)
+            result = finnhub.restful_candles(symbols, resolution, latest_tick, now_seconds)
+    except FinnhubAPIException as error:
+        logging.warn(error)
+    except FinnhubRequestException as error:
+        logging.warn(error)
     except Exception as error:
         logging.error(error)
-        return []
+    return result
 
 
 def load_and_etl(symbol, resolution, api):
@@ -67,6 +75,9 @@ def getArgs(argv):
     except getopt.GetoptError:
         print(help_info)
         sys.exit(2)
+    except Exception:
+        sys.exit(2)
+
     if(len(opts) == 0):
         print(help_info)
         sys.exit(2)
@@ -108,10 +119,8 @@ if __name__ == "__main__":
                 delay = delay + 1
     s.run()
 
-    with SMS() as sms:
-        sms.client.messages \
-                .create(
-                     body="Load data from finnhub done.",
-                     from_='+12566693745',
-                     to='+16475220400'
-                 )
+    msg = 'Finished loading daily level stock candles.'
+    if(resolution == '1'):
+        msg = 'Finished loading 1 minute level stock candles.'
+    EmailNotification().send('zhiwilliam@gmail.com', msg)
+    SMSNotification().send('+16475220400', msg)
