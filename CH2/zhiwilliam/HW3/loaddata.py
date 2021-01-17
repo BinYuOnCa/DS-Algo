@@ -4,7 +4,6 @@ from datetime import datetime
 from messages import EmailNotification, SMSNotification
 from finnhub import FinnhubAPIException, FinnhubRequestException
 import sys
-import getopt
 # from decimal import Decimal
 import csv
 import pytz
@@ -68,40 +67,8 @@ def load_and_etl(symbol, resolution, api):
         SaveData().candles(symbol, candles_data)
 
 
-def getArgs(argv):
-    help_info = "loaddata.py -r <1 or D> -a <rest or api>"
-    try:
-        opts, _ = getopt.getopt(argv, "hr:a:", ["resolution="])
-    except getopt.GetoptError:
-        print(help_info)
-        sys.exit(2)
-    except Exception:
-        sys.exit(2)
-
-    if(len(opts) == 0):
-        print(help_info)
-        sys.exit(2)
-
-    args = {}
-    for opt, arg in opts:
-        if opt == '-h':
-            print(help_info)
-            sys.exit()
-        elif opt in ("-r", "--resolution"):
-            if(arg != "1" and arg != "D"):
-                print(help_info)
-            else:
-                args['resolution'] = arg
-        elif opt in ("-a", "--api"):
-            if(arg != "api" and arg != "rest"):
-                print(help_info)
-            else:
-                args['api'] = arg
-    return args
-
-
 if __name__ == "__main__":
-    args = getArgs(sys.argv[1:])
+    args = config.getArgs(sys.argv[1:])
     resolution = args['resolution']
     api = 'api'
     if ('api' in args):
