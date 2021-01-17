@@ -1,6 +1,10 @@
 import psycopg2
 from configparser import ConfigParser
+import datetime
+import time
 from datetime import timezone
+from io import StringIO
+
 
 # set up connection to local db
 def config(filename='application.ini', section='postgresql'):
@@ -55,12 +59,40 @@ def execute_sql(sqlCommand):
             conn.close ()
             print ( 'Database connection closed.')
 
+def copyfrom_stringIO(df, table_name):
+    try:
+        conn = cursor_setup()
+        cur = conn.cursor()
+        print(datetime.datetime.now())
+        buffer = StringIO()
+        df.to_csv(buffer, index=False, header=False)
+        # put the file position back at the start
+        buffer.seek(0)
 
+        cur.copy_from(buffer, table_name, sep=",")
+        conn.commit()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            cur.close()
+            conn.close()
 
 
 
 
 # Convert python timestamp to unix timestamp
-def convert_time(pytime):
-    timestamp = pytime.replace(tzinfo=timezone.utc).timestamp()
+def convertDate_Unix(dt):
+    #dt = datetime.datetime(year, month, date, hour, minute)
+    timestamp = dt.replace(tzinfo=timezone.utc).timestamp()
     return timestamp
+
+
+def convertUnix_Date(unixtime):
+    dt=datetime.datetime.utcfromtimestamp(int(unixtime))
+
+
+    return dt
+
+
