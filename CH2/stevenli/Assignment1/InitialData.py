@@ -29,7 +29,8 @@ def create_table(sqlcommand):
 
 def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
     finnhub_client = finnhub.Client(api_key="bv4f2qn48v6qpatdiu3g")
-    symbols = pd.read_csv(csv_file, nrows=11).to_numpy()
+    #symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
+    symbols = pd.read_csv(csv_file).to_numpy()
     try:
         conn = util.cursor_setup()
         cur = conn.cursor()
@@ -47,8 +48,6 @@ def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
                 df = pd.DataFrame(res)
 
                 df.insert(0, 'symbol', symbol[0], allow_duplicates=True)
-
-                df2 = pd.DataFrame()
 
                 buffer = StringIO()
                 df.to_csv(buffer, index=False, header=False)
@@ -92,8 +91,8 @@ if __name__ == '__main__':
 
     create_table(sqlcommand)
     
-    initial_stockdata('sec_list_10.csv', 'D', 979527600, 1610679600, dailytable)
-    initial_stockdata('sec_list_10.csv', '1', 979527600, 1610679600, minutetable)
+    initial_stockdata('sec_list_1000.csv', 'D', 979527600, 1610582400, dailytable)
+    initial_stockdata('sec_list_1000.csv', '1', 979527600, 1610582400, minutetable)
 
        
 
