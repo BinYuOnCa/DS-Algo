@@ -1,7 +1,7 @@
-from query import FinnhubQuery, OldDataQuery
-from persistent import SaveData
+from lib.query import FinnhubQuery, OldDataQuery
+from lib.persistent import SaveData
 from datetime import datetime
-from messages import EmailNotification, SMSNotification
+from lib.messages import EmailNotification, SMSNotification
 from finnhub import FinnhubAPIException, FinnhubRequestException
 import sys
 # from decimal import Decimal
@@ -10,7 +10,7 @@ import pytz
 import sched
 import time
 import logging
-import config
+from lib import config
 
 
 conf = config.get("APP")
