@@ -6,37 +6,21 @@ import db_utility as util
 import logging
 import time
 import datetime
-from configparser import ConfigParser
+import logging
 
-
-def create_table(sqlcommand):
-    
-    try:
-        conn = util.cursor_setup()
-        cur = conn.cursor()
-
-        conn.commit()
-        cur.execute(sqlcommand)
-
-        conn.commit()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None :
-            cur.close()
-            conn.close()
 
 
 def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
     finnhub_client = finnhub.Client(api_key="bv4f2qn48v6qpatdiu3g")
-    #symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
-    symbols = pd.read_csv(csv_file).to_numpy()
+    symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
+    #symbols = pd.read_csv(csv_file).to_numpy()
     try:
         conn = util.cursor_setup()
         cur = conn.cursor()
-        print(datetime.datetime.now())
+
         for symbol in symbols:
-            print(symbol)
+            logging.info('Start of Initial (%s%%)' % (datetime.datetime.now().strftime("%B") ))
+            logging.info(symbol[0])
             res = finnhub_client.stock_candles(symbol, resolution, start_time, end_time)
 
             time.sleep(1)
@@ -65,6 +49,9 @@ def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+    logger = logging.getLogger()
+
     # Setup finnhub client
     dailytable = 'stock_daily'
     minutetable = 'stock_minute'
@@ -79,7 +66,7 @@ if __name__ == '__main__':
                                                              "time     INT NOT NULL, " \
                                                              "volume   FLOAT NOT NULL) "
 
-    create_table(sqlcommand)
+    util.execute_sql(sqlcommand)
     sqlcommand = "CREATE TABLE IF NOT EXISTS " + minutetable + " (" \
                                                               "symbol   VARCHAR(50) NOT NULL, " \
                                                               "close    FLOAT NOT NULL, " \
@@ -89,23 +76,12 @@ if __name__ == '__main__':
                                                               "time     INT NOT NULL, " \
                                                               "volume   FLOAT NOT NULL) "
 
-    create_table(sqlcommand)
+    util.execute_sql(sqlcommand)
     
     initial_stockdata('sec_list_1000.csv', 'D', 979527600, 1610582400, dailytable)
+    logging.info('END of Initial (%s%%)' % (datetime.datetime.now().strftime("%B")))
     initial_stockdata('sec_list_1000.csv', '1', 979527600, 1610582400, minutetable)
-
-       
-
-
-
-
-
-
-
-
-
-
-
+    logging.info('END of Initial (%s%%)' % (datetime.datetime.now().strftime("%B")))
     print(datetime.datetime.now())
     print("End of code.")
 

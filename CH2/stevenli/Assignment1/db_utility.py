@@ -57,13 +57,13 @@ def execute_sql(sqlCommand):
     finally :
         if conn is not None :
             conn.close ()
-            print ( 'Database connection closed.')
+            #print ( 'Database connection closed.')
 
 def copyfrom_stringIO(df, table_name):
     try:
         conn = cursor_setup()
         cur = conn.cursor()
-        print(datetime.datetime.now())
+        #print(datetime.datetime.now())
         buffer = StringIO()
         df.to_csv(buffer, index=False, header=False)
         # put the file position back at the start
