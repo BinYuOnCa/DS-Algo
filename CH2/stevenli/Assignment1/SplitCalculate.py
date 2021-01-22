@@ -8,34 +8,43 @@ import time
 import datetime
 
 
-def Recalculate_Stock(split_ratio, symbol,resolution, start_time, end_time):
-    start_time = 979527600
-    end_time = util.convertDate_Unix(datetime.datetime.utcnow())
-    finnhub_client = finnhub.Client(api_key="bv4f2qn48v6qpatdiu3g")
-    res = finnhub_client.stock_candles(symbol, resolution, start_time, int(end_time))
-    res.pop('s', None)
-    df = pd.DataFrame(res)
-    df.insert(0, 'symbol', symbol, allow_duplicates=True)
+# Query symbol from daily table and write to a dataframe
+def ConvertQuery_DF(symbol,  table_name):
+    sqlcommand = "SELECT * FROM "+table_name+" WHERE symbol = '"+symbol+"'"
+    try:
+        conn = util.cursor_setup()
+        # Create a cursor
+        cur = conn.cursor()
+        # create table one by one
+        cur.execute(sqlcommand)
+        df = pd.read_sql(sqlcommand, conn)
+        #df.insert(0, 'symbol', symbol, allow_duplicates=True)
 
-    if split_ratio > 1:
-        ratio = 1 / (1 + split_ratio)
-        df['c'] = df['c'] * ratio
-        df['h'] = df['h'] * ratio
-        df['l'] = df['h'] * ratio
-        df['o'] = df['o'] * ratio
+        # commit the changes
+        conn.commit()
+        cur.close()
 
-    elif split_ratio < 1:
-        ratio = 1 / split_ratio
-        df['c'] = df['c'] * ratio
-        df['h'] = df['h'] * ratio
-        df['l'] = df['h'] * ratio
-        df['o'] = df['o'] * ratio
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally :
+        if conn is not None :
+
+            conn.close ()
+            #print ( 'Database connection closed.')
+        return df
+
+
+# Reculate close, high, low, open prices
+def Recalculate_Stock(split_ratio, df):
+
+    ratio = 1 / split_ratio
+    df['close'] = df['close'] * ratio
+    df['high'] = df['high'] * ratio
+    df['low'] = df['low'] * ratio
+    df['open'] = df['open'] * ratio
+
 
     return df
-
-
-
-
 
 
 symbol = 'MGNX'
@@ -44,13 +53,16 @@ start_time  = 979527600
 end_time = util.convertDate_Unix(datetime.datetime.utcnow())
 resolution = 'D'
 dailytable = 'stock_daily'
-df = Recalculate_Stock(split_ratio, symbol, resolution, start_time, end_time)
+df = ConvertQuery_DF(symbol, dailytable)
+df = Recalculate_Stock(split_ratio, df)
 
+# Delete records from table
 sqlcommand = "DELETE FROM "+dailytable+" WHERE symbol = '"+symbol+"'"
 util.execute_sql(sqlcommand)
+# Insert the reculated dataframe into table
 util.copyfrom_stringIO(df, dailytable)
 
-print("END")
+#print("END")
 
 
 
