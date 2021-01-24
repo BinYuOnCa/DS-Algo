@@ -18,7 +18,7 @@ testDataUpdate.py, a unit test module file.
 
 
 ## AWS EC2 authentication
-log in as sli6@hotmail.com/ Loveryan2005!!
+
 
 
 
