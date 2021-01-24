@@ -2,7 +2,7 @@ import pandas as pd
 from io import StringIO
 import psycopg2
 import finnhub
-import CH2.stevenli.Assignment1.db_utility as util
+import db_utility as util
 import logging
 import time
 import datetime

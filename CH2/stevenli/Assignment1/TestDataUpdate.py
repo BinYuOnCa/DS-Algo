@@ -1,8 +1,8 @@
 import pytest
 import psycopg2
 from configparser import ConfigParser
-import CH2.stevenli.Assignment1.UpdateStockData as updatestockdata
-import CH2.stevenli.Assignment1.db_utility as utility
+import UpdateStockData as updatestockdata
+import db_utility as utility
 import datetime
 
 # Verify the time stamp of symbol daily is equal to stock split time

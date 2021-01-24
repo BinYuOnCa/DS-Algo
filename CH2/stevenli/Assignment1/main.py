@@ -1,11 +1,11 @@
-import CH2.stevenli.Assignment1.UpdateStockData as updatestockdata
-import CH2.stevenli.Assignment1.InitialData as initialdata
-import CH2.stevenli.Assignment1.db_utility as util
+import UpdateStockData as updatestockdata
+import InitialData as initialdata
+import db_utility as util
 import logging
 import finnhub
 import datetime
 import pandas as pd
-import CH2.stevenli.Assignment1.MessageMe as message
+import MessageMe as message
 
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
