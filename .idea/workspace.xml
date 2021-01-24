@@ -1,16 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41d0081-6881-46bb-b167-5ec779401ac4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CH2/stevenli/HW1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/CH2/stevenli/HW1/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CH2/stevenli/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/CH2/stevenli/README.md" afterDir="false" />
+    <list default="true" id="c41d0081-6881-46bb-b167-5ec779401ac4" name="Default Changelist" comment="refactor SplitCalculate.py&#10;add TestDataUpdate.py">
+      <change beforePath="$PROJECT_DIR$/.idea/DS-Algo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DS-Algo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/HW1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/HW1/dict_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/HW1/numpy_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/HW1/pandas_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/HW1/stack_queue_deque__demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/HW1/tree_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Andy/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Eric/HW1/test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CH2/stevenli/Assignment1/MessageMe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Eric/HW1/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Eric/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/HW1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/Git_add_Test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/Practice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW2/FinnHub_Get_Data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/HW2/SQL_Practice.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/Finnhub.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/Finnhub/Get_Company_Data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/sales.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/Misc/sales_pandas.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/George/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Yifan_Fan/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/Yifan_Fan/info_store.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/YingweiChen/HW1/AlgoTrading_ch2_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/YingweiChen/HW1/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/atnewbie/HW1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/atnewbie/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW1/com_disagg_xls_2020.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW1/my_practise.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW1/orca.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/AAPL_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/CRM_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/FB_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/GLD_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/GOOG_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/IBM_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/MSFT_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/S&amp;P500_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/data/SPY_2020-12-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/dbconnection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/fetch_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/HW2/practise_sql_in_postgresql13.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/bobhe/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/luciexie/HW1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/luciexie/HW1/py_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW1/206.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW1/outbreak_cases.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW1/python第一节课作业.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW2/HW2_SQL课的作业DDL_DML.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/HW2/oracle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/untitled/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/untitled/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/untitled/.idea/untitled.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/songbin/untitled/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/stevenli/Assignment1/InitialData.py" beforeDir="false" afterPath="$PROJECT_DIR$/CH2/stevenli/Assignment1/InitialData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/stevenli/Assignment1/UpdateStockData.py" beforeDir="false" afterPath="$PROJECT_DIR$/CH2/stevenli/Assignment1/UpdateStockData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/stevenli/Assignment1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/CH2/stevenli/Assignment1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/zhiwilliam/HW2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/zhiwilliam/HW2/SQL_practics.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/zhiwilliam/HW2/db_exec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CH2/zhiwilliam/README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="pyhw2" />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="Assignment1" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="pyhw2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lqVdPemWb5i8EhXDIp8wK3d3KT" />
@@ -21,6 +138,125 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="MessageMe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DS-Algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python\Anaconda3\envs\DS\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CH2/stevenli/Assignment1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CH2/stevenli/Assignment1/MessageMe.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SplitCalculate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DS-Algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python\Anaconda3\envs\DS\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CH2/stevenli/Assignment1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CH2/stevenli/Assignment1/SplitCalculate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateStockData" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DS-Algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python\Anaconda3\envs\DS\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CH2/stevenli/Assignment1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CH2/stevenli/Assignment1/UpdateStockData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DS-Algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python\Anaconda3\envs\DS\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CH2/stevenli/Assignment1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CH2/stevenli/Assignment1/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in TestDataUpdate.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="DS-Algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="D:\MyAuto\DS-Algo\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CH2/stevenli/Assignment1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/CH2/stevenli/Assignment1/TestDataUpdate.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.MessageMe" />
+      <item itemvalue="Python.SplitCalculate" />
+      <item itemvalue="Python.UpdateStockData" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.pytest in TestDataUpdate.py" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.MessageMe" />
+        <item itemvalue="Python tests.pytest in TestDataUpdate.py" />
+        <item itemvalue="Python.SplitCalculate" />
+        <item itemvalue="Python.UpdateStockData" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -31,6 +267,112 @@
       <option name="presentableId" value="Default" />
       <updated>1608324702841</updated>
     </task>
+    <task id="LOCAL-00001" summary="UpdateStockData.py">
+      <created>1610824928260</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1610824928260</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Refactor UpdateStockData.py">
+      <created>1610909389914</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610909389914</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add application.ini">
+      <created>1610930082843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610930082843</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update csv file name">
+      <created>1610930316894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610930316894</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update several files under Assignment1.">
+      <created>1611110561213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611110561213</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor SplitCalculate.py&#10;add TestDataUpdate.py">
+      <created>1611281333973</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611281333973</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="UpdateStockData.py" />
+    <MESSAGE value="Refactor UpdateStockData.py" />
+    <MESSAGE value="add application.ini" />
+    <MESSAGE value="update csv file name" />
+    <MESSAGE value="update several files under Assignment1." />
+    <MESSAGE value="refactor SplitCalculate.py&#10;add TestDataUpdate.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor SplitCalculate.py&#10;add TestDataUpdate.py" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="734" y="355" width="1092" height="834" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611367809145">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="734" y="355" width="1092" height="834" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611367809145" />
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1611373194973">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611373194973" />
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1611286693848" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1611373194972">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611373194972" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1611286693848" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1611373194972">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611373194972" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1611286693848" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1611373194972">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611373194972" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1611286693848" />
+    <state x="1114" y="403" key="RollbackChangesDialog" timestamp="1611281148947">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1114" y="403" key="RollbackChangesDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611281148947" />
+    <state x="781" y="345" key="SettingsEditor" timestamp="1611367624976">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611367624976" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1611281347390">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611281347390" />
+    <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1611022783341">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1611022783341" />
   </component>
 </project>

@@ -87,9 +87,9 @@ if __name__ == '__main__':
     resolution = 'D'
 
     if check_Table(table_name):
-        symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
-        #symbols = pd.read_csv(csv_file).to_numpy()
-        print(symbols)
+        #symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
+        symbols = pd.read_csv(csv_file).to_numpy()
+        #print(symbols)
         for symbol in symbols:
 
             record = retrieve_latestSymbol(symbol[0], table_name)
@@ -100,6 +100,7 @@ if __name__ == '__main__':
             record = retrieve_latestSymbol(symbol[0], 'stock_minute')
             #print(record)
             Add_SymbolData(record, '1', symbol[0], 'stock_minute')
+
 
 
 

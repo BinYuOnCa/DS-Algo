@@ -12,8 +12,8 @@ import logging
 
 def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
     finnhub_client = finnhub.Client(api_key="bv4f2qn48v6qpatdiu3g")
-    symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
-    #symbols = pd.read_csv(csv_file).to_numpy()
+    #symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
+    symbols = pd.read_csv(csv_file).to_numpy()
     try:
         conn = util.cursor_setup()
         cur = conn.cursor()
@@ -25,7 +25,7 @@ def initial_stockdata(csv_file, resolution, start_time, end_time, table_name):
 
             time.sleep(1)
             if res['s'] == 'no_data':
-                print("The symbol " + symbol + " has no data")
+                logging.info("The symbol " + symbol + " has no data")
             else:
                 res.pop('s', None)
 

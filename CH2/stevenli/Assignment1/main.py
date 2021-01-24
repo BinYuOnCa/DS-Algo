@@ -5,6 +5,7 @@ import logging
 import finnhub
 import datetime
 import pandas as pd
+import CH2.stevenli.Assignment1.MessageMe as message
 
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
@@ -47,8 +48,8 @@ if updatestockdata.check_Table('stock_minute') is False:
 
 csv_file = 'sec_list_1000.csv'
 
-symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
-# symbols = pd.read_csv(csv_file).to_numpy()
+#symbols = pd.read_csv(csv_file, nrows=3).to_numpy()
+symbols = pd.read_csv(csv_file).to_numpy()
 #print(symbols)
 for symbol in symbols:
     record = updatestockdata.retrieve_latestSymbol(symbol[0], dailytable)
@@ -59,3 +60,5 @@ for symbol in symbols:
     record = updatestockdata.retrieve_latestSymbol(symbol[0], 'stock_minute')
     # print(record)
     updatestockdata.Add_SymbolData(record, '1', symbol[0], 'stock_minute')
+
+message.message_me()
