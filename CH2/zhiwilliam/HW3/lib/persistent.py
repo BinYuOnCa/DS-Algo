@@ -1,4 +1,4 @@
-import effects
+from lib import effects
 import logging
 
 
